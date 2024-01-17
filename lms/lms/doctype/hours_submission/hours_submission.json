@@ -1,0 +1,120 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-12-24 00:32:47.655297",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "hours_request",
+  "hours_request_title",
+  "activity",
+  "activity_name",
+  "volunteer",
+  "coord",
+  "volunteer_name",
+  "hours_worked",
+  "validated_hours",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "hours_request",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Hours Request",
+   "options": "Hours Request",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "hours_request.title",
+   "fieldname": "hours_request_title",
+   "fieldtype": "Data",
+   "label": "Hours Request Title"
+  },
+  {
+   "fetch_from": "hours_request.activity_name",
+   "fieldname": "activity_name",
+   "fieldtype": "Data",
+   "label": "Activity name"
+  },
+  {
+   "fieldname": "volunteer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Volunteer",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "volunteer.full_name",
+   "fieldname": "volunteer_name",
+   "fieldtype": "Data",
+   "label": "Volunteer Name"
+  },
+  {
+   "fieldname": "hours_worked",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Number of Hours",
+   "non_negative": 1,
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "validated_hours",
+   "fieldtype": "Float",
+   "label": "Validated Hours",
+   "non_negative": 1,
+   "precision": "1"
+  },
+  {
+   "default": "Awaiting approval",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Awaiting approval\nApproved\nRejected"
+  },
+  {
+   "fieldname": "coord",
+   "fieldtype": "Link",
+   "label": "Coordinator",
+   "options": "User"
+  },
+  {
+   "fetch_from": "hours_request.hours_activity",
+   "fieldname": "activity",
+   "fieldtype": "Link",
+   "label": "Activity",
+   "options": "LMS Batch"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-15 17:16:43.558510",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "Hours Submission",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Moderator"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

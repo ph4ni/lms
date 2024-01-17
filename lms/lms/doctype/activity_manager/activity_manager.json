@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-05 15:33:24.389381",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "manager_details_section",
+  "manager",
+  "mangname"
+ ],
+ "fields": [
+  {
+   "fieldname": "manager_details_section",
+   "fieldtype": "Section Break",
+   "label": "Manager Details"
+  },
+  {
+   "fieldname": "manager",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Manager",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "manager.full_name",
+   "fieldname": "mangname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Manager Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-06 23:42:38.404142",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "Activity Manager",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

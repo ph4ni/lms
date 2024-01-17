@@ -1,0 +1,36 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-01-05 11:01:51.813637",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "fieldname": "volunteer",
+   "fieldtype": "Link",
+   "label": "Volunteer",
+   "mandatory": 0,
+   "options": "User",
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2024-01-05 11:17:11.040195",
+ "modified_by": "Administrator",
+ "module": "LMS",
+ "name": "vol approv test",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Hours Submission",
+ "report_name": "vol approv test",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

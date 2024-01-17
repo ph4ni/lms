@@ -1,0 +1,31 @@
+<p>
+    {{ _("Dear ") }} {{ student_name }},
+</p>
+<br>
+<p>
+    {{ _("Thank you for applying to volunteer with us! You have been approved and you can login to your account to check more details about the activity!") }}
+</p>
+<br>
+<p>
+    <b>
+        {{ _("Important Details:") }}
+    </b>
+</p>
+
+<p>
+    <b>{{ _("Activity Start Date:") }}</b> {{ frappe.utils.format_date(start_date, "medium") }}
+</p>
+
+<br>
+<p>
+    {{ _("Visit the following link to view your ") }}
+    <a href="/batches/{{ name }}">{{ _("Activity Details") }}</a>
+</p>
+<p>
+    {{ _("If you have any questions or require assistance, feel free to contact us.") }}
+</p>
+<br>
+<p>
+    {{ _("Best Regards") }}
+</p>
+
