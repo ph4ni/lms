@@ -496,6 +496,7 @@ const open_batch_dialog = () => {
 				fieldtype: "Small Text",
 				label: __("Short Description"),
 				fieldname: "description",
+				placeholder: "One or two lines short intro about the activity",
 				default: batch_info && batch_info.description,
 				reqd: 1,
 			},
@@ -503,6 +504,7 @@ const open_batch_dialog = () => {
 				fieldtype: "Text Editor",
 				label: __("Activity Details"),
 				fieldname: "batch_details",
+				placeholder: "Full details of the activity",
 				default: batch_info && batch_info.batch_details,
 				reqd: 1,
 			},/*
@@ -535,8 +537,11 @@ const open_batch_dialog = () => {
 				default: batch_info && batch_info.question2,
             },
 			{
+				fieldtype: "Section Break",
+			},
+			{
 				fieldtype: "Attach Image",
-				label: __("Image"),
+				label: __("Activity Image or Poster"),
 				fieldname: "meta_image",
 				default: batch_info && batch_info.meta_image,
 			},
@@ -571,7 +576,7 @@ const open_batch_dialog = () => {
 				only_select: 1,
 			},*/
 		],
-		primary_action_label: __("Save"),
+		primary_action_label: __("Create Activity"),
 		primary_action: (values) => {
 			save_batch(values);
 		},
