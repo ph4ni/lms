@@ -1166,16 +1166,19 @@ def add_student_to_batch_wop(batchname):
 
 @frappe.whitelist()
 def add_volunteer_to_activity_after_approval(batchname, volunteer):
-	student = frappe.new_doc("Batch Student")
-	student.update(
-		{
-			"student": volunteer,
-			"parent": batchname,
-			"parenttype": "LMS Batch",
-			"parentfield": "students",
-		}
-	)
-	student.save(ignore_permissions=True)
+	if(frappe.db.exists({"doctype": "Batch Student", "student": volunteer, "parent": batchname, "parenttype": "LMS Batch", "parentfield": "students",})):
+		frappe.throw("Volunteer is already in activity")
+	else:
+		student = frappe.new_doc("Batch Student")
+		student.update(
+			{
+				"student": volunteer,
+				"parent": batchname,
+				"parenttype": "LMS Batch",
+				"parentfield": "students",
+			}
+		)
+		student.save(ignore_permissions=True)
 	
 
 @frappe.whitelist()

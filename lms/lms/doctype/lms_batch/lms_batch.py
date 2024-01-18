@@ -40,7 +40,7 @@ class LMSBatch(Document):
 		duplicates = {student for student in students if students.count(student) > 1}
 		if len(duplicates):
 			frappe.throw(
-				_("Student {0} has already been added to this batch.").format(
+				_("Volunteer {0} has already been added to this activity.").format(
 					frappe.bold(next(iter(duplicates)))
 				)
 			)

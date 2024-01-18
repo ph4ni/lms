@@ -606,7 +606,7 @@ const show_hours_request_modal = () => {
 				fieldtype: "Data",
 				label: __("Title"),
 				fieldname: "title",
-				placeholder: "Ex: Week 1",
+				placeholder: "Ex: Week 1 or a specific date",
 				reqd: 1,
 				filters: {
 					ignore_user_type: 1,
