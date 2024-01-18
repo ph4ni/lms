@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format: HRS-{#####}",
  "creation": "2023-12-24 00:32:47.655297",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -90,10 +91,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-15 17:16:43.558510",
+ "modified": "2024-01-18 16:34:11.197716",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "Hours Submission",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
