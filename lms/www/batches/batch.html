@@ -359,7 +359,7 @@
 						{{ _("Hours Request") }}
 					</div>
 					{#
-					<div class="col grid-static-col col-xs-2 text-right">
+					<div class="col grid-static-col col-xs-2 text-right">	
 						{{ _("Number of Submissions") }}
 					</div>
 					<div class="col grid-static-col col-xs-2 text-right">
@@ -379,7 +379,7 @@
 		{% for hours_request in activity_hours_request_list %}
 		<div class="grid-row">
 			<div class="data-row row">
-				<a class="col grid-static-col button-links clickable" href="/batches/{{ batch_info.name }}/">
+				<a class="col grid-static-col">
 					{{ hours_request.title }}
 				</a>
 				{#
@@ -389,7 +389,7 @@
 				<div class="col grid-static-col col-xs-2 text-right">
 					{{ 0 }}
 				</div>
-				#}
+				
 				{% if is_moderator %}
 				<div type="button" class="col grid-static-col col-xs-1 btn-remove-student">
 					<svg class="icon icon-sm">
@@ -397,6 +397,7 @@
 					</svg>
 				</div>
 				{% endif %}
+				#}
 			</div>
 		</div>
 		{% endfor %}

@@ -173,12 +173,14 @@
 				{{ batch.student_count }} {{ _("Volunteers") }}
 		</div>
 
+		{#
 		<div class="mb-2">
 			<svg class="icon icon-md">
 				<use href="#icon-list"></use>
 			</svg>
 				{{ batch.course_count }} {{ _("Tasks") }}
 		</div>
+		#}
 
 		{% if is_student(batch.name) %}
 			<a class="stretched-link" href="/batches/{{ batch.name }}"></a>

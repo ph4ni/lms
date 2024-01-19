@@ -51,6 +51,11 @@ frappe.ready(() => {
 		remove_student(e);
 	});
 
+	$(".btn-remove-hours").click((e) => {
+		remove_student(e);
+	});
+
+
 	$(".btn-remove-cood").click((e) => {
 		remove_cood(e);
 	});
