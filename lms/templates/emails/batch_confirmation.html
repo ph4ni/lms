@@ -6,14 +6,9 @@
     {{ _("Thank you for applying to volunteer with us! You have been approved and you can login to your account to check more details about the activity!") }}
 </p>
 <br>
-<p>
-    <b>
-        {{ _("Important Details:") }}
-    </b>
-</p>
 
 <p>
-    <b>{{ _("Activity Start Date:") }}</b> {{ frappe.utils.format_date(start_date, "medium") }}
+    <b>{{ _("Activity:") }}</b> {{ title }}
 </p>
 
 <br>

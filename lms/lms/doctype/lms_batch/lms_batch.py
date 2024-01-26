@@ -86,10 +86,8 @@ class LMSBatch(Document):
 
 		args = {
 			"student_name": student.student_name,
-			"start_time": self.start_time,
-			"start_date": self.start_date,
-			"medium": self.medium,
 			"name": self.name,
+			"title": self.title,
 		}
 
 		if custom_template:

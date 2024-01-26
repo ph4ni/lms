@@ -1176,6 +1176,7 @@ def add_volunteer_to_activity_after_approval(batchname, volunteer):
 				"parent": batchname,
 				"parenttype": "LMS Batch",
 				"parentfield": "students",
+				"confirmation_email_sent": 1,
 			}
 		)
 		student.save(ignore_permissions=True)
