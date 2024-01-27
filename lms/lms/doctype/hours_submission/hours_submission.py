@@ -6,4 +6,6 @@ from frappe.model.document import Document
 
 
 class HoursSubmission(Document):
-	pass
+	def before_save(self):
+		if self.validated_hours==None:
+			self.validated_hours = self.hours_worked

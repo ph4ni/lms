@@ -15,10 +15,13 @@
   "volunteer_name",
   "hours_worked",
   "validated_hours",
-  "status"
+  "volunteercomments",
+  "status",
+  "submitted_by"
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "hours_request",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -39,6 +42,7 @@
    "label": "Activity name"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "volunteer",
    "fieldtype": "Link",
    "in_list_view": 1,
@@ -53,6 +57,7 @@
    "label": "Volunteer Name"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "hours_worked",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -87,11 +92,22 @@
    "fieldtype": "Link",
    "label": "Activity",
    "options": "LMS Batch"
+  },
+  {
+   "fieldname": "submitted_by",
+   "fieldtype": "Select",
+   "label": "Submitted by",
+   "options": "Admin\nVolunteer"
+  },
+  {
+   "fieldname": "volunteercomments",
+   "fieldtype": "Data",
+   "label": "Comments"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-18 16:34:11.197716",
+ "modified": "2024-01-27 01:16:31.454948",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "Hours Submission",
@@ -116,6 +132,7 @@
    "role": "Moderator"
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

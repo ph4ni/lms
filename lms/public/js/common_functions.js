@@ -208,7 +208,7 @@ const add_to_mapping = (e) => {
     });
 };
 
-
+/*
 const showExtraInfoDialog = (question1, question2, callback) => {
     let extraInfoDialog = new frappe.ui.Dialog({
         title: "Extra Information",
@@ -224,6 +224,7 @@ const showExtraInfoDialog = (question1, question2, callback) => {
                 fieldname: "answer_2",
             },
         ],
+		
         primary_action_label: __("Submit"),
         primary_action(values) {
             extraInfoDialog.hide();
@@ -231,7 +232,53 @@ const showExtraInfoDialog = (question1, question2, callback) => {
         },
     });
     extraInfoDialog.show();
+};*/
+
+const showExtraInfoDialog = (question1, question2, callback) => {
+    if (question2 === "") {
+        // Show smaller dialog when question2 is empty
+        let differentDialog = new frappe.ui.Dialog({
+            title: "Please fill the form below to apply",
+            fields: [
+                {
+                    fieldtype: "Data",
+                    label: question1,
+                    fieldname: "answer_1",
+                },
+            ],
+            primary_action_label: __("Submit"),
+            primary_action(values) {
+                differentDialog.hide();
+                callback(values.answer_1);
+            },
+        });
+        differentDialog.show();
+    } else {
+        // Show the regular dialog when question2 is not empty
+        let extraInfoDialog = new frappe.ui.Dialog({
+            title: "Please fill the form below to apply",
+            fields: [
+                {
+                    fieldtype: "Data",
+                    label: question1,
+                    fieldname: "answer_1",
+                },
+                {
+                    fieldtype: "Data",
+                    label: question2,
+                    fieldname: "answer_2",
+                },
+            ],
+            primary_action_label: __("Submit"),
+            primary_action(values) {
+                extraInfoDialog.hide();
+                callback(values.answer_1, values.answer_2);
+            },
+        });
+        extraInfoDialog.show();
+    }
 };
+
 
 const AddVolunteerToMapping = (batch, answer1 = "", answer2 = "") => {
     frappe.call({

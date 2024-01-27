@@ -190,6 +190,8 @@ def submit_hours(
 	hours_request=None,
 	hours_worked=None,
 	volunteer=None,
+	volunteercomments=None,
+	submittedby=None,
 	status="Awaiting approval",
 ):
 	if frappe.session.user == "Guest":
@@ -199,9 +201,11 @@ def submit_hours(
 		{
 			"doctype": "Hours Submission",
 			"hours_request": hours_request,
-			"volunteer": frappe.session.user,
+			"volunteer": volunteer,
 			"hours_worked": hours_worked,
 			"validated_hours":hours_worked,
+			"volunteercomments": volunteercomments,
+			"submitted_by": submittedby,
 			"status":status
 		}
 	)

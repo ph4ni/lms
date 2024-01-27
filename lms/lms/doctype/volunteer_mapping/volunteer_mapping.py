@@ -17,7 +17,6 @@ class VolunteerMapping(Document):
 			add_volunteer_to_activity_after_approval(self.activity,self.volunteer)
 			self.send_mail()
 
-
 	def send_mail(self):
 		subject = _("You have joined the volunteering activity!")
 		template = "batch_confirmation"

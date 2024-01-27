@@ -47,6 +47,10 @@ frappe.ready(() => {
 		show_hours_submit_modal(e);
 	});
 
+	$(".btn-add-vol-hours").click((e) => {
+		show_hours_submit_modal_admin(e);
+	});
+
 	$(".btn-remove-student").click((e) => {
 		remove_student(e);
 	});
@@ -690,6 +694,16 @@ const show_hours_submit_modal = (e) => {
 				},
 				filter_description: " ",
 			},
+			{
+				fieldtype: "Data",
+				label: __("Comments"),
+				fieldname: "comments",
+				placeholder: "Feedback/Experience",
+				filters: {
+					ignore_user_type: 1,
+				},
+				filter_description: " ",
+			},
 		],
 		primary_action_label: __("Submit"),
 		primary_action(values) {
@@ -703,6 +717,46 @@ const show_hours_submit_modal = (e) => {
 	}, 1000);
 };
 
+const show_hours_submit_modal_admin = (e) => {
+	let hours_submit_modal_admin = new frappe.ui.Dialog({
+		title: "Add hours for volunteer",
+		fields: [
+			{
+				fieldtype: "Link",
+				options: "Hours Request",
+				label: __("Hours request"),
+				fieldname: "hreq",
+				reqd: 1,
+				only_select: 1,
+				filters: {
+					hours_activity: $(e.currentTarget).data("batchname"),
+				},
+				filter_description: " ",
+
+			},
+			{
+				fieldtype: "Float",
+				label: __("Number of Hours"),
+				fieldname: "hours_value",
+				reqd: 1,
+				filters: {
+					ignore_user_type: 1,
+				},
+				filter_description: " ",
+			},
+		],
+		primary_action_label: __("Add"),
+		primary_action(values) {
+			add_hours_submit_admin(e, values);
+			hours_submit_modal_admin.hide();
+		},
+	});
+	hours_submit_modal_admin.show();
+	setTimeout(() => {
+		/* $(".modal-body").css("min-height", "200px");*/
+	}, 1000);
+};
+
 const add_hours_submit = (e, values) => {
 	frappe.call({
 		method: "lms.lms.doctype.lms_batch.lms_batch.submit_hours",
@@ -710,6 +764,8 @@ const add_hours_submit = (e, values) => {
 			hours_request: $(e.currentTarget).data("reqq"),
 			volunteer: $(e.currentTarget).data("volunteer"),
 			hours_worked: values.hours_value,
+			volunteercomments: values.comments,
+			submittedby: "Volunteer",
 		},
 		callback: (data) => {
 			frappe.show_alert({
@@ -722,6 +778,26 @@ const add_hours_submit = (e, values) => {
 	
 };
 
+const add_hours_submit_admin = (e, values) => {
+	frappe.call({
+		method: "lms.lms.doctype.lms_batch.lms_batch.submit_hours",
+		args: {
+			hours_request: values.hreq,
+			volunteer: $(e.currentTarget).data("volunteer"),
+			hours_worked: values.hours_value,
+			submittedby: "Admin",
+			status: "Approved",
+		},
+		callback: (data) => {
+			frappe.show_alert({
+				message: __("Saved"),
+				indicator: "green",
+			});
+			window.location.reload();
+		},
+	});
+	
+};
 
 const remove_hours_request = (e) => {
 	frappe.confirm(

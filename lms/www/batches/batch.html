@@ -567,13 +567,16 @@
 						{{ _("Tasks Completed") }}
 					</div>
 					#}
-					<div class="col grid-static-col col-xs-3 text-right">
+					<div class="col grid-static-col col-xs-2 text-right">
 						{{ _("Hours") }}
 					</div>
-					<div class="col grid-static-col col-xs-4 text-right">
+					<div class="col grid-static-col col-xs-2 text-right">
 						{{ _("Last Active") }}
 					</div>
 					{% if is_moderator %}
+					<div class="col grid-static-col col-xs-2 text-right">
+						{{ _("Add Hours") }}
+					</div>
 					<div class="col grid-static-col col-xs-1">
 						<svg class="icon icon-sm" style="filter: opacity(0.5)">
 							<use class="" href="#icon-setting-gear"></use>
@@ -595,13 +598,16 @@
 					{{ student.assessments_completed }}
 				</div>
 				#}
-				<div class="col grid-static-col col-xs-3 text-right">
+				<div class="col grid-static-col col-xs-2 text-right">
 					{{ student.hoursbystud }}
 				</div>
-				<div class="col grid-static-col col-xs-4 text-right">
+				<div class="col grid-static-col col-xs-2 text-right">
 					{{ frappe.utils.pretty_date(student.last_active) }}
 				</div>
 				{% if is_moderator %}
+				<div class="col grid-static-col col-xs-2 clickable text-right btn-add-vol-hours" data-volunteer= "{{ student.student }}" data-batchname="{{batch_info.name}}">
+					{{ "Add" }}
+				</div>
 				<div type="button" class="col grid-static-col col-xs-1 btn-remove-student" data-student="{{ student.student }}">
 					<svg class="icon icon-sm">
 						<use href="#icon-delete"></use>
