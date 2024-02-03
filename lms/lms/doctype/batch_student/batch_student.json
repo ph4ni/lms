@@ -11,6 +11,7 @@
   "student",
   "student_name",
   "username",
+  "mobile_no",
   "column_break_oduu",
   "answer1",
   "answer2",
@@ -64,12 +65,18 @@
    "fieldname": "answer2",
    "fieldtype": "Data",
    "label": "Question 2 response"
+  },
+  {
+   "fetch_from": "student.mobile_no",
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile number"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2023-12-27 23:26:27.584100",
+ "modified": "2024-02-03 23:53:03.153432",
  "modified_by": "Administrator",
  "module": "LMS",
  "name": "Batch Student",

@@ -23,6 +23,9 @@ def get_context(context):
 	
 	context.is_moderator = has_course_moderator_role()
 	context.is_evaluator = has_course_evaluator_role()
+	context["app_name"] = (
+		frappe.get_website_settings("app_name") or frappe.get_system_settings("app_name") or _("Frappe")
+	)
 	
 
 	context.batch_info = frappe.db.get_value(
@@ -66,7 +69,7 @@ def get_context(context):
 	batch_students = frappe.get_all(
 		"Batch Student",
 		{"parent": batch_name},
-		["name", "student", "student_name", "username"],
+		["name", "student", "student_name", "mobile_no", "username"],
 		order_by="idx",
 	)
 

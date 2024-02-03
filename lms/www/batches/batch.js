@@ -48,6 +48,8 @@ frappe.ready(() => {
 	});
 
 	$(".btn-add-vol-hours").click((e) => {
+		debugger
+		console.log("Event object:", e);
 		show_hours_submit_modal_admin(e);
 	});
 

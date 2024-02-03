@@ -11,6 +11,17 @@
             placeholder="{{ _('jane@example.com') }}" required>
         </div>
 
+        {% if frappe.db.get_single_value("LMS Settings", "askphonenumber") %}
+
+        <div class="form-group">
+            <label class="form-label sr-only" for="signup_mobile"> {{ _("Mobile Number") }} </label>
+            <input type="text" maxlength="10" pattern="\d{10}" id="signup_mobile" class="form-control"
+            placeholder="{{ _('9876543210') }}" required>
+        </div>
+        
+
+        {% endif %}
+
        {% if frappe.db.get_single_value("LMS Settings", "user_category") %}
         <div class="form-group">
             <label class="form-label sr-only"> {{ _("User Category") }} </label>
@@ -76,6 +87,7 @@
         e.preventDefault();
         const email = ($("#signup_email").val() || "").trim();
         const full_name = frappe.utils.xss_sanitise(($("#signup_fullname").val() || "").trim());
+        const mobileno = ($("#signup_mobile").val() || "").trim();
 
         if (!email || !validate_email(email) || !full_name) {
             login.set_status('{{ _("Valid email and name required") }}', 'red');
@@ -87,6 +99,7 @@
             args: {
                 "email": email,
                 "full_name": full_name,
+                "mobileno": mobileno,
                 "verify_terms": $("#signup-terms").prop("checked") ? 1 : 0,
                 "user_category": $("#user_category").length ?  $("#user_category").val() : ""
             },

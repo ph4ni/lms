@@ -573,16 +573,17 @@
 					<div class="col grid-static-col col-xs-2 text-right">
 						{{ _("Last Active") }}
 					</div>
-					{% if is_moderator %}
-					<div class="col grid-static-col col-xs-2 text-right">
+					<div class="col grid-static-col col-xs-1 text-right">
 						{{ _("Add Hours") }}
+					</div>
+					<div class="col grid-static-col col-xs-1 text-right">
+						{{ _("Chat") }}
 					</div>
 					<div class="col grid-static-col col-xs-1">
 						<svg class="icon icon-sm" style="filter: opacity(0.5)">
 							<use class="" href="#icon-setting-gear"></use>
 						</svg>
 					</div>
-					{% endif %}
 				</div>
 			</div>
 		</div>
@@ -604,16 +605,30 @@
 				<div class="col grid-static-col col-xs-2 text-right">
 					{{ frappe.utils.pretty_date(student.last_active) }}
 				</div>
-				{% if is_moderator %}
-				<div class="col grid-static-col col-xs-2 clickable text-right btn-add-vol-hours" data-volunteer= "{{ student.student }}" data-batchname="{{batch_info.name}}">
+				
+				<div class="col grid-static-col col-xs-1 clickable text-right btn-add-vol-hours" data-volunteer= "{{ student.student }}" data-batchname="{{batch_info.name}}">
 					{{ "Add" }}
 				</div>
+
+				{% if student.mobile_no %}
+				<a class="col grid-static-col col-xs-1 clickable text-right btn-chat-with-vol" href="https://wa.me/91{{ student.mobile_no }}?text=Hi%20{{ student.student_name}}, I'm%20{{ frappe.session.user }} from {{app_name}}. Thank you for volunteering in {{batch_info.title}}." target="_blank">
+					{{ "Chat" }}
+				</a>
+
+				{% else %}
+
+				<div class="col grid-static-col col-xs-1 text-right btn-chat-with-vol" >
+					{{ "No Number" }}
+				</div>
+
+				{% endif %}
+				
+
 				<div type="button" class="col grid-static-col col-xs-1 btn-remove-student" data-student="{{ student.student }}">
 					<svg class="icon icon-sm">
 						<use href="#icon-delete"></use>
 					</svg>
 				</div>
-				{% endif %}
 			</div>
 		</div>
 		{% endfor %}

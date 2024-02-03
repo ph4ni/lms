@@ -15,7 +15,7 @@ class VolunteerMapping(Document):
 			if self.manager:
 				add_mang_perms_for_volunteer(self.manager,self.volunteer)
 			add_volunteer_to_activity_after_approval(self.activity,self.volunteer)
-			self.send_mail()
+			#self.send_mail()
 
 	def send_mail(self):
 		subject = _("You have joined the volunteering activity!")
