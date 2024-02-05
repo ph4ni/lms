@@ -20,7 +20,7 @@ from lms.lms.utils import (
 def get_context(context):
 	context.no_cache = 1
 	batch_name = frappe.form_dict["batchname"]
-	
+	context["coodnaame"] = frappe.db.get_value("User", frappe.session.user, "full_name")
 	context.is_moderator = has_course_moderator_role()
 	context.is_evaluator = has_course_evaluator_role()
 	context["app_name"] = (

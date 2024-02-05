@@ -403,7 +403,7 @@
 		{% endfor %}
 	</div>
 	{% else %}
-	<p class="text-muted mt-3"> {{ _("No Hours Requests Found. Create one by clicking the button on the left.") }} </p>
+	<p class="text-muted mt-3"> {{ _("No Hours Requests Found. Create one by clicking the button on the right.") }} </p>
 	{% endif %}
 
 
@@ -611,7 +611,7 @@
 				</div>
 
 				{% if student.mobile_no %}
-				<a class="col grid-static-col col-xs-1 clickable text-right btn-chat-with-vol" href="https://wa.me/91{{ student.mobile_no }}?text=Hi%20{{ student.student_name}}, I'm%20{{ frappe.session.user }} from {{app_name}}. Thank you for volunteering in {{batch_info.title}}." target="_blank">
+				<a class="col grid-static-col col-xs-1 clickable text-right btn-chat-with-vol" href="https://wa.me/91{{ student.mobile_no }}?text=Hi%20{{ student.student_name}}, I'm%20{{ coodnaame }} from {{app_name}}. Thank you for volunteering in {{batch_info.title}}." target="_blank">
 					{{ "Chat" }}
 				</a>
 
